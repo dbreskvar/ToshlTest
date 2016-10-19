@@ -103,8 +103,12 @@ public class AddEntryActivity extends AppCompatActivity {
         entry.setCurrency(currency);
 
         entry.setAccount("2691047");
+        if (entryCategoryEdit.getText().toString().length() == 0) {
+            Toast.makeText(this, getString(R.string.category_error), Toast.LENGTH_SHORT).show();
+            return;
+        }
         entry.setCategory(entryCategoryEdit.getText().toString());
-        entry.setDate("2016-10-19");
+        entry.setDate(entryDateText.toString());
 
         if (false) { //If tags are added -> which is currently not possible
             TagHelper.getTagIds(this, entry, "Create");

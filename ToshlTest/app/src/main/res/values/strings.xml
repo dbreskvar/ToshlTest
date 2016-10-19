@@ -23,4 +23,5 @@
 
     <string name="entry_removed">Your entry has been removed</string>
     <string name="amount_error">Amount must be a decimal number and is required field</string>
+    <string name="category_error">Category is required field</string>
 </resources>
