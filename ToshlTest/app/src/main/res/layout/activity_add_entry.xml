@@ -38,7 +38,7 @@
         android:id="@+id/entry_amount_edit" />
 
     <TextView
-        android:text="25.2.2016"
+        android:text="2016-10-19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/entry_date_text" />

@@ -1,36 +1,64 @@
 package dbug.toshltest.activities;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import dbug.toshltest.R;
+import dbug.toshltest.helpers.CategoryHelper;
+import dbug.toshltest.helpers.TagHelper;
 import dbug.toshltest.models.Currency;
 import dbug.toshltest.models.Entry;
-import dbug.toshltest.network.APIs;
-import dbug.toshltest.network.RestClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class AddEntryActivity extends AppCompatActivity {
 
-    @BindView(R.id.entry_description_edit)      EditText        entryDescriptionEdit;
-    @BindView(R.id.entry_amount_edit)           EditText        entryAmountEdit;
-    @BindView(R.id.entry_date_text)             TextView        entryDateText;
-    @BindView(R.id.entry_category_spinner)      Spinner         entryCategorySpinner;
-    @BindView(R.id.activity_add_entry)          LinearLayout    activityAddEntry;
+    EditText        entryDescriptionEdit;
+    EditText        entryAmountEdit;
+    EditText        entryCategoryEdit;
+    TextView        entryDateText;
+    LinearLayout    activityAddEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_entry);
-        ButterKnife.bind(this);
+
+        entryAmountEdit = (EditText) findViewById(R.id.entry_amount_edit);
+        entryDescriptionEdit = (EditText) findViewById(R.id.entry_description_edit);
+        entryCategoryEdit = (EditText) findViewById(R.id.entry_category_edit);
+        entryDateText = (TextView) findViewById(R.id.entry_date_text);
+        activityAddEntry = (LinearLayout) findViewById(R.id.activity_add_entry);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowHomeEnabled(false);
+            View mActionBarView = getLayoutInflater().inflate(R.layout.custom_action_bar, null);
+            actionBar.setCustomView(mActionBarView);
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        }
+
+        ImageButton done = (ImageButton) findViewById(R.id.done_action);
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createEntry();
+            }
+        });
+
+        ImageButton clear = (ImageButton) findViewById(R.id.clear_action);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                entryAmountEdit.setText("");
+                entryDescriptionEdit.setText("");
+                finish();
+            }
+        });
     }
 
     private void createEntry() {
@@ -39,26 +67,20 @@ public class AddEntryActivity extends AppCompatActivity {
         if (description.length() > 0) entry.setDesc(description);
         entry.setAmount(Double.parseDouble(entryAmountEdit.getText().toString()));
         entry.setDate(entryDateText.toString());
-        entry.setCategory(entryCategorySpinner.getSelectedItem().toString());
 
         Currency currency = new Currency();
         currency.setCode("EUR");
 
         entry.setCurrency(currency);
 
-        APIs restClient = RestClient.setupRestClient(APIs.class, null);
-        Call<Object> create = restClient.createEntry(entry);
-        create.enqueue(new Callback<Object>() {
+        entry.setAccount("2691047");
+        entry.setCategory(entryCategoryEdit.getText().toString());
+        entry.setDate("2016-10-19");
 
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-
-            }
-        });
+        if (false) { //If tags are added -> which is currentyl not possible
+            TagHelper.getTagIds(this, entry, "Create");
+        } else {
+            CategoryHelper.findCategoryId(this, entry, "Create");
+        }
     }
 }

@@ -1,8 +1,12 @@
 package dbug.toshltest.models;
 
-import java.util.ArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Entry {
+import java.util.ArrayList;
+import java.util.Locale;
+
+public class Entry implements Parcelable {
 
     /**
      * Required fields are amount, currency(code), date, account, category.
@@ -17,6 +21,10 @@ public class Entry {
     Location location;
     Repeat repeat;
     ArrayList<Reminder> reminders;
+
+    public Entry() {
+
+    }
 
     public String getId() {
         return id;
@@ -128,5 +136,35 @@ public class Entry {
 
     public void setReminders(ArrayList<Reminder> reminders) {
         this.reminders = reminders;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(Locale.getDefault(), "%s%n%f%n%s%n%s%n", desc, amount, account, category);
+    }
+
+    public static final Parcelable.Creator<Entry> CREATOR
+            = new Parcelable.Creator<Entry>() {
+        public Entry createFromParcel(Parcel in) {
+            return new Entry(in);
+        }
+
+        public Entry[] newArray(int size) {
+            return new Entry[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(id);
+    }
+
+    private Entry(Parcel in) {
+        id = in.readString();
     }
 }
