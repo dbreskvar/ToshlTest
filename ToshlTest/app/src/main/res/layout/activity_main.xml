@@ -4,10 +4,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dbug.toshltest.activities.MainActivity">
 
     <android.support.design.widget.FloatingActionButton
@@ -17,12 +13,14 @@
         android:src="@drawable/ic_add_black_24dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="#ff0000"/>
+        android:background="#ff0000"
+        android:layout_margin="@dimen/standard_activity_padding"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/finances_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:padding="@dimen/standard_activity_padding"/>
 </RelativeLayout>

@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="@string/description_hint"
+        android:padding="8dp"
         android:ems="10"
         android:id="@+id/entry_description_edit" />
 
@@ -35,39 +36,37 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:hint="@string/amount_hint"
+        android:padding="8dp"
         android:id="@+id/entry_amount_edit" />
+
+    <TextView
+        android:text="@string/add_entry_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextViewTitle" />
 
     <TextView
         android:text="2016-10-19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/entry_date_text" />
+        android:id="@+id/entry_date_text"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"/>
 
-    <Spinner
+    <TextView
+        android:text="@string/add_entry_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/entry_category_spinner" />
+        style="@style/TextViewTitle" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="@string/category_hint"
-            android:ems="10"
-            android:id="@+id/entry_category_edit"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="+"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_category"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/category_hint"
+        android:ems="10"
+        android:id="@+id/entry_category_edit"
+        android:padding="8dp" />
 
 </LinearLayout>

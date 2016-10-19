@@ -4,8 +4,12 @@
     <string name="menu_remove">Remove</string>
     <string name="menu_done">Done</string>
 
+    <string name="add_title">Create new entry</string>
+
     <string name="add_entry_description">Entry description (optional)</string>
-    <string name="add_entry_amount">Expense amount</string>
+    <string name="add_entry_amount">Expense amount (EUR)</string>
+    <string name="add_entry_date">Date of expense</string>
+    <string name="add_entry_category">Entry category (if it does not exists, it will be created)</string>
 
     <string name="edit_description">Change description</string>
     <string name="edit_amount">Change amount</string>
@@ -18,4 +22,5 @@
     <string name="description_hint">Petrol station</string>
 
     <string name="entry_removed">Your entry has been removed</string>
+    <string name="amount_error">Amount must be a decimal number and is required field</string>
 </resources>

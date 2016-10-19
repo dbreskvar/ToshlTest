@@ -2,31 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:text="Expense"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/item_description"
-        android:paddingEnd="4dp"
-        android:paddingRight="4dp"/>
+        android:padding="8dp">
 
-    <TextView
-        android:text="Category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_category"
-        android:layout_weight="1"
-        android:gravity="start"
-        android:paddingLeft="4dp"
-        android:paddingStart="4dp"/>
+        <TextView
+            android:text="Expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_description"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
-    <TextView
-        android:text="650€"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_amount"
-        android:layout_weight="1"
-        android:gravity="end"/>
+        <TextView
+            android:text="Category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_category"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:paddingLeft="4dp"
+            android:paddingStart="4dp"
+            android:textAllCaps="true"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:text="650€"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_amount"
+            android:layout_weight="1"
+            android:gravity="end"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
 </LinearLayout>
