@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/entry_remove_menu"
+        android:title="@string/menu_remove"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/entry_done_menu"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/menu_done"
+        app:showAsAction="ifRoom" />
+
+</menu>

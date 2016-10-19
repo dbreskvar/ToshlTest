@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_entry"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="dbug.toshltest.activities.AddEntryActivity">
+
+
+    <TextView
+        android:text="@string/add_entry_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextViewTitle"
+        android:layout_marginTop="24dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/description_hint"
+        android:ems="10"
+        android:id="@+id/entry_description_edit" />
+
+    <TextView
+        android:text="@string/add_entry_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextViewTitle" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:hint="@string/amount_hint"
+        android:id="@+id/entry_amount_edit" />
+
+    <TextView
+        android:text="25.2.2016"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entry_date_text" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entry_category_spinner" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/category_hint"
+            android:ems="10"
+            android:id="@+id/entry_category_edit"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_category"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

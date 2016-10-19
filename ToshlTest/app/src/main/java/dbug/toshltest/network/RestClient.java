@@ -1,5 +1,6 @@
 package dbug.toshltest.network;
 
+import android.support.annotation.Nullable;
 import android.util.Base64;
 import android.util.Log;
 
@@ -27,8 +28,8 @@ public class RestClient {
 
     private static String API_BASE_URL = "https://api.toshl.com/";
 
-    private static final String API_KEY = "";
-    private static /*final*/ String secretKey = "";
+    private static final String API_KEY = "57814ff5-e790-414c-aa1c-424184b2803ac3b76cfc-ce50-4bf9-a7f7-ab73b76b1fd7";
+    private static final String secretKey = "";
     protected static final String clientID = "";
     protected static final String clientName = "";
 
@@ -44,7 +45,7 @@ public class RestClient {
         }
     }
 
-    public static <S> S setupRestClient(Class<S> apiClass, final String url) {
+    public static <S> S setupRestClient(Class<S> apiClass, @Nullable final String token) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(SyncResponse.class, new MyDeserializer())
                 .create();
@@ -59,7 +60,8 @@ public class RestClient {
                         .header("Content-Type", "application/json")
                         .method(request.method(), request.body());
 
-                //builder.header("Authorization", token);
+                if (token != null) builder.header("Authorization", token);
+                else builder.header("Authorization", API_KEY);
 
                 Request main = builder.build();
 

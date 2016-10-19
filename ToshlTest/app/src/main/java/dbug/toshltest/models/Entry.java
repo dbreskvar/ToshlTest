@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Entry {
 
+    /**
+     * Required fields are amount, currency(code), date, account, category.
+     */
+
     String id, date, desc, account, category, modified;
     Double amount;
     Boolean completed;

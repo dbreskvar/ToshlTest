@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ToshlTest</string>
+
+    <string name="menu_remove">Remove</string>
+    <string name="menu_done">Done</string>
+
+    <string name="add_entry_description">Entry description (optional)</string>
+    <string name="description_hint">Petrol station</string>
+    <string name="add_entry_amount">Expense amount</string>
+    <string name="amount_hint">64.58</string>
+    <string name="category_hint">Income</string>
+
 </resources>

@@ -40,11 +40,11 @@ public interface APIs {
     Call<Entry> getEntry(@Path("id") Integer id);
 
     @POST("/entries")
-    Call<?> createEntry(@Body Entry entry);
+    Call<Object> createEntry(@Body Entry entry);
 
     @PUT("/entries/{id}/")
-    Call<?> updateEntry(@Path("id") Integer id, @Body Entry entry);
+    Call<Object> updateEntry(@Path("id") Integer id, @Body Entry entry);
 
     @DELETE("/entries/{id}/")
-    Call<?> deleteEntry(@Path("id") Integer id);
+    Call<Object> deleteEntry(@Path("id") Integer id);
 }
